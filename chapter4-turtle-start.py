@@ -6,8 +6,8 @@ from PySide.QtGui import *
 class TurtleControl(QWidget): 
     def __init__(self, turtle):
         super(TurtleControl, self).__init__()
-        self.turtle = turtle     
-
+        self.turtle = turtle  
+        
         self.left_btn = QPushButton("Left", self)
         self.right_btn = QPushButton("Right", self)       
         self.move_btn = QPushButton("Move", self)              
@@ -23,6 +23,10 @@ class TurtleControl(QWidget):
         self.distance_spin.setRange(0, 100)
         self.distance_spin.setSingleStep(5)
         self.distance_spin.setValue(20)
+
+        self.move_btn.clicked.connect(self.move_turtle)
+        self.right_btn.clicked.connect(self.turn_turtle_right)
+        self.left_btn.clicked.connect(self.turn_turtle_left)
         
     def turn_turtle_left(self):
         self.turtle.left(45)
