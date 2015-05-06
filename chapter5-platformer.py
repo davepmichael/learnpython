@@ -16,6 +16,7 @@ class Player(pygame.sprite.Sprite):
 		self.base = pygame.Rect(start_x, start_y+height, width,2)
 		self.sound = pygame.mixer.Sound(jump_sound)
 
+
 	def move_y(self):
 		'''this calculates the y-axis movement for the player in the current speed'''
 		collided_y = world.collided_get_y(self.base)
